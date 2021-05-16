@@ -24,6 +24,21 @@ const postNotes = (req, res) => {
   writeToFile("db", JSON.stringify(data));
 };
 
+const updateNotes = (req, res) => {
+  const data = JSON.parse(readFromFile("db"));
+  const { id } = req.params;
+
+  const index = data.findIndex((note) => note.id === id);
+
+  const updatedNote = req.body[index];
+
+  console.log(updatedNote);
+
+  // writeToFile("db", JSON.stringify(newData));
+  // const updatedData = JSON.parse(readFromFile("db"));
+  // res.json(updatedData);
+};
+
 const deleteNotes = (req, res) => {
   const data = JSON.parse(readFromFile("db"));
   const { id } = req.params;
@@ -34,4 +49,4 @@ const deleteNotes = (req, res) => {
   res.json(updatedData);
 };
 
-module.exports = { getNotes, postNotes, deleteNotes };
+module.exports = { getNotes, postNotes, updateNotes, deleteNotes };

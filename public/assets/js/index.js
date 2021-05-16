@@ -46,6 +46,14 @@ const deleteNote = (id) =>
     },
   });
 
+const updateNote = (id) =>
+  fetch(`/api/notes/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
@@ -84,6 +92,16 @@ const handleNoteDelete = (e) => {
   }
 
   deleteNote(noteId).then(() => {
+    getAndRenderNotes();
+    renderActiveNote();
+  });
+};
+
+// Update the clicked note
+const handleNoteUpdate = (activeNote) => {
+  const noteId = activeNote.id;
+
+  updateNote(noteId).then(() => {
     getAndRenderNotes();
     renderActiveNote();
   });
