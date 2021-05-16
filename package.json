@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node public/assets/js/index.js",
-    "nodemon": "nodemon public/assets/js/index.js"
+    "start": "node server/server.js",
+    "nodemon": "nodemon server/server.js"
   },
   "author": "",
   "license": "ISC",
