@@ -4,7 +4,7 @@ const cors = require("cors");
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 
