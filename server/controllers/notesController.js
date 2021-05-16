@@ -24,4 +24,10 @@ const postNotes = (req, res) => {
   writeToFile("db", JSON.stringify(data));
 };
 
-module.exports = { getNotes, postNotes };
+const deleteNotes = (req, res) => {
+  // read notes from db.json
+  // find and remove note with given ID query parameter
+  // rewrite notes to db.json
+};
+
+module.exports = { getNotes, postNotes, deleteNotes };
