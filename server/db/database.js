@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const read = (fileName) => {
+const readFromFile = (fileName) => {
   const data = fs.readFileSync(
     path.join(__dirname, `../db/${fileName}.json`),
     "utf-8"
@@ -9,4 +9,20 @@ const read = (fileName) => {
   return data;
 };
 
-module.exports = read;
+const writeToFile = (fileName, data) => {
+  const callback = (err) => {
+    if (err) {
+      console.log("Error", err);
+    } else {
+      console.log("Note added!");
+    }
+  };
+
+  fs.writeFileSync(
+    path.join(__dirname, `../db/${fileName}.json`),
+    data,
+    callback
+  );
+};
+
+module.exports = { readFromFile, writeToFile };
