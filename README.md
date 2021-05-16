@@ -36,7 +36,7 @@ This app is currently deployed on Heroku. Please check it out [here](#)
 
 ## Screenshots
 
-[!screenshot]()
+![img](./public/assets/images/screenshot.png)
 
 ## Questions
 
