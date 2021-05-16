@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+const moment = require("moment");
 
 const { readFromFile, writeToFile } = require("../db/database");
 
@@ -19,6 +20,11 @@ const postNotes = (req, res) => {
   // Add ID to the note before writing to database
   const ID = uuidv4();
   req.body.id = ID;
+
+  // Add timestamp to note
+  const dateTime = moment().format("DD/MM/YY, HH:mm:ss");
+  req.body.dateTime = dateTime;
+
   data.push(note);
 
   writeToFile("db", JSON.stringify(data));

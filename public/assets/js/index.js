@@ -138,12 +138,12 @@ const renderNoteList = async (notes) => {
   let noteListItems = [];
 
   // Returns HTML element with or without a delete button
-  const createLi = (text, delBtn = true) => {
+  const createLi = (noteDisplay, delBtn = true) => {
     const liEl = document.createElement("li");
     liEl.classList.add("list-group-item");
 
     const spanEl = document.createElement("span");
-    spanEl.innerText = text;
+    spanEl.innerText = noteDisplay;
     spanEl.addEventListener("click", handleNoteView);
 
     liEl.append(spanEl);
@@ -170,7 +170,8 @@ const renderNoteList = async (notes) => {
   }
 
   jsonNotes.forEach((note) => {
-    const li = createLi(note.title);
+    const noteDisplay = `${note.dateTime}\n\n${note.title}`;
+    const li = createLi(noteDisplay);
     li.dataset.note = JSON.stringify(note);
 
     noteListItems.push(li);
