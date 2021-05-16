@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { getNotes, postNotes } = require("../controllers/getNotes");
+const { getNotes, postNotes } = require("../controllers/notesController");
 
 const router = express.Router();
 
