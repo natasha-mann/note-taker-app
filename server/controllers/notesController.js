@@ -12,14 +12,14 @@ const getNotes = (req, res) => {
 const postNotes = (req, res) => {
   const data = JSON.parse(readFromFile("db"));
 
-  // add unique ID to the note?
+  // Return the note to user without ID
+  const note = req.body;
+  res.json(note);
+
+  // Add ID to the note before writing to database
   const ID = uuidv4();
   req.body.id = ID;
-
-  const note = req.body;
   data.push(note);
-  res.json(note);
-  console.log(note);
 
   writeToFile("db", JSON.stringify(data));
 };
