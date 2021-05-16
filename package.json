@@ -4,11 +4,23 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node public/assets/js/index.js",
+    "nodemon": "nodemon public/assets/js/index.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4"
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natasha-mann/note-taker-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/natasha-mann/note-taker-app/issues"
+  },
+  "homepage": "https://github.com/natasha-mann/note-taker-app#readme",
+  "keywords": [],
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
   }
 }
