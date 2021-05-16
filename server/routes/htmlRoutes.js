@@ -2,8 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
-router.get("*", getIndex);
+router.get("*");
 
-router.get("/notes", generateNotes);
+router.get("/notes");
 
 module.exports = router;
