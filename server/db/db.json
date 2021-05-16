@@ -1,6 +1,12 @@
 [
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
+  {
+    "title": "Welcome to Note Taker!",
+    "text": "Add your own notes here!",
+    "id": "c101b322-f8da-4caf-96ba-7ea014c98802"
+  },
+  {
+    "title": "Welcome :)",
+    "text": "Test",
+    "id": "d0d9aa9d-eb9f-4c77-af9c-69cec755ba65"
+  }
 ]
