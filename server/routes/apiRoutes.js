@@ -1,4 +1,4 @@
-const express = require("express");
+const { Router } = require("express");
 
 const {
   getNotes,
@@ -7,7 +7,7 @@ const {
   deleteNotes,
 } = require("../controllers/notesController");
 
-const router = express.Router();
+const router = Router();
 
 router.get("/notes", getNotes);
 

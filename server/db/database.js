@@ -2,27 +2,23 @@ const fs = require("fs");
 const path = require("path");
 
 const readFromFile = (fileName) => {
-  const data = fs.readFileSync(
-    path.join(__dirname, `../db/${fileName}.json`),
-    "utf-8"
-  );
-  return data;
+  try {
+    const data = fs.readFileSync(
+      path.join(__dirname, `../db/${fileName}.json`),
+      "utf-8"
+    );
+    return JSON.parse(data);
+  } catch (error) {
+    console.log("Error", err);
+  }
 };
 
 const writeToFile = (fileName, data) => {
-  const callback = (err) => {
-    if (err) {
-      console.log("Error", err);
-    } else {
-      console.log("Note added!");
-    }
-  };
-
-  fs.writeFileSync(
-    path.join(__dirname, `../db/${fileName}.json`),
-    data,
-    callback
-  );
+  try {
+    fs.writeFileSync(path.join(__dirname, `../db/${fileName}.json`), data);
+  } catch (error) {
+    console.log("Error", err);
+  }
 };
 
 module.exports = { readFromFile, writeToFile };

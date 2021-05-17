@@ -5,13 +5,13 @@ const moment = require("moment");
 const { readFromFile, writeToFile } = require("../db/database");
 
 const getNotes = (req, res) => {
-  const data = JSON.parse(readFromFile("db"));
+  const data = readFromFile("db");
 
   res.json(data);
 };
 
 const postNotes = (req, res) => {
-  const data = JSON.parse(readFromFile("db"));
+  const data = readFromFile("db");
 
   // Return the note to user without ID
   const note = req.body;
@@ -31,7 +31,7 @@ const postNotes = (req, res) => {
 };
 
 const updateNotes = (req, res) => {
-  const data = JSON.parse(readFromFile("db"));
+  const data = readFromFile("db");
 
   const note = req.body;
   const id = note.id;
@@ -44,17 +44,17 @@ const updateNotes = (req, res) => {
   data[index].dateTime = moment().format("DD/MM/YY, HH:mm:ss");
 
   writeToFile("db", JSON.stringify(data));
-  const updatedData = JSON.parse(readFromFile("db"));
+  const updatedData = readFromFile("db");
   res.json(updatedData);
 };
 
 const deleteNotes = (req, res) => {
-  const data = JSON.parse(readFromFile("db"));
+  const data = readFromFile("db");
   const { id } = req.params;
   const newData = data.filter((note) => note.id !== id);
 
   writeToFile("db", JSON.stringify(newData));
-  const updatedData = JSON.parse(readFromFile("db"));
+  const updatedData = readFromFile("db");
   res.json(updatedData);
 };
 

@@ -1,8 +1,8 @@
-const express = require("express");
+const { Router } = require("express");
 
 const { renderHome, renderNotes } = require("../controllers/renderer");
 
-const router = express.Router();
+const router = Router();
 
 // should return the index.html file.
 router.get("/", renderHome);
