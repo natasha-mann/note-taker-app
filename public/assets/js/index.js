@@ -81,7 +81,6 @@ const handleNoteSave = () => {
       renderActiveNote();
     });
   } else {
-    console.log("updating");
     const updatedNote = {
       title: noteTitle.value,
       text: noteText.value,
@@ -89,6 +88,7 @@ const handleNoteSave = () => {
     };
     updateNote(updatedNote).then(() => {
       getAndRenderNotes();
+      activeNote = {};
       renderActiveNote();
     });
   }
