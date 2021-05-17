@@ -32,17 +32,20 @@ const postNotes = (req, res) => {
 
 const updateNotes = (req, res) => {
   const data = JSON.parse(readFromFile("db"));
-  const { id } = req.params;
+
+  const note = req.body;
+  const id = note.id;
 
   const index = data.findIndex((note) => note.id === id);
 
-  const updatedNote = req.body[index];
+  data[index].title = note.title;
+  data[index].text = note.text;
+  data[index].id = note.id;
+  data[index].dateTime = moment().format("DD/MM/YY, HH:mm:ss");
 
-  console.log(updatedNote);
-
-  // writeToFile("db", JSON.stringify(newData));
-  // const updatedData = JSON.parse(readFromFile("db"));
-  // res.json(updatedData);
+  writeToFile("db", JSON.stringify(data));
+  const updatedData = JSON.parse(readFromFile("db"));
+  res.json(updatedData);
 };
 
 const deleteNotes = (req, res) => {
