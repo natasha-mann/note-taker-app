@@ -32,11 +32,12 @@ npm run start
 
 ## Deployed App
 
-This app is currently deployed on Heroku. Please check it out [here](#)
+This app is currently deployed on Heroku. Please check it out [here](https://cryptic-basin-18355.herokuapp.com/)
 
 ## Screenshots
 
 ![img](./public/assets/images/screenshot.png)
+![img](./public/assets/images/screenshot2.png)
 
 ## Questions
 
