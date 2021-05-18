@@ -14,29 +14,30 @@ const postNotes = (req, res) => {
   const data = readFromFile("db");
 
   // Return the note to user without ID
-  const note = req.body;
-  res.json(note);
+  const { title, message } = req.body;
+  const newNote = { title, message, id, dateTime };
 
   // Add ID to the note before writing to database
-  const ID = uuidv4();
-  req.body.id = ID;
+  const id = uuidv4();
 
   // Add timestamp to note
   const dateTime = moment().format("DD/MM/YY, HH:mm:ss");
-  req.body.dateTime = dateTime;
 
-  data.push(note);
+  data.push(newNote);
 
   writeToFile("db", JSON.stringify(data));
+
+  res.json(newNote);
 };
 
 const updateNotes = (req, res) => {
   const data = readFromFile("db");
 
   const note = req.body;
-  const id = note.id;
 
-  const index = data.findIndex((note) => note.id === id);
+  const { id } = req.params;
+
+  const index = data.findIndex((each) => each.id === id);
 
   data[index].title = note.title;
   data[index].text = note.text;
