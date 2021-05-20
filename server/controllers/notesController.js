@@ -13,7 +13,7 @@ const getNotes = (req, res) => {
 const postNotes = (req, res) => {
   const data = readFromFile("db");
 
-  const { title, message } = req.body;
+  const { title, text } = req.body;
 
   // Add ID to the note
   const id = uuidv4();
@@ -21,7 +21,7 @@ const postNotes = (req, res) => {
   // Add timestamp to note
   const dateTime = moment().format("DD/MM/YY, HH:mm:ss");
 
-  const newNote = { title, message, id, dateTime };
+  const newNote = { title, text, id, dateTime };
 
   data.push(newNote);
 
