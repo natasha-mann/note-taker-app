@@ -9,7 +9,7 @@ const readFromFile = (fileName) => {
     );
     return JSON.parse(data);
   } catch (error) {
-    console.log("Error", err);
+    console.log("Error", error);
   }
 };
 
@@ -17,7 +17,7 @@ const writeToFile = (fileName, data) => {
   try {
     fs.writeFileSync(path.join(__dirname, `../db/${fileName}.json`), data);
   } catch (error) {
-    console.log("Error", err);
+    console.log("Error", error);
   }
 };
 
