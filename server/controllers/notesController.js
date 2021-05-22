@@ -56,7 +56,7 @@ const deleteNotes = (req, res) => {
 
   writeToFile("db", JSON.stringify(newData));
 
-  res.sendStatus(200);
+  res.status(200).send("Note successfully deleted.");
 };
 
 module.exports = { getNotes, postNotes, updateNotes, deleteNotes };
