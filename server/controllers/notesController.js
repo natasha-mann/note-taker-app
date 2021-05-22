@@ -55,8 +55,8 @@ const deleteNotes = (req, res) => {
   const newData = data.filter((note) => note.id !== id);
 
   writeToFile("db", JSON.stringify(newData));
-  const updatedData = readFromFile("db");
-  res.json(updatedData);
+
+  res.sendStatus(200);
 };
 
 module.exports = { getNotes, postNotes, updateNotes, deleteNotes };
