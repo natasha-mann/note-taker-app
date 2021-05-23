@@ -45,8 +45,8 @@ const updateNotes = (req, res) => {
   data[index].dateTime = moment().format("DD/MM/YY, HH:mm:ss");
 
   writeToFile("db", JSON.stringify(data));
-  const updatedData = readFromFile("db");
-  res.json(updatedData);
+
+  res.status(200).json({ message: "Note successfully updated." });
 };
 
 const deleteNotes = (req, res) => {
