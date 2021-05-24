@@ -5,7 +5,7 @@ const { renderHome, renderNotes } = require("../controllers/renderer");
 const router = Router();
 
 // should return the index.html file.
-router.get("*", renderHome);
+router.get("/", renderHome);
 
 // should return the notes.html file.
 router.get("/notes", renderNotes);
