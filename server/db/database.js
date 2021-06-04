@@ -9,15 +9,18 @@ const readFromFile = (fileName) => {
     );
     return JSON.parse(data);
   } catch (error) {
-    console.log("Error", error);
+    throw error;
   }
 };
 
 const writeToFile = (fileName, data) => {
   try {
-    fs.writeFileSync(path.join(__dirname, `../db/${fileName}.json`), data);
+    fs.writeFileSync(
+      path.join(__dirname, `../db/${fileName}.json`),
+      JSON.stringify(data)
+    );
   } catch (error) {
-    console.log("Error", error);
+    throw error;
   }
 };
 
