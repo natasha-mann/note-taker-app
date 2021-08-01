@@ -1,13 +1,13 @@
 const { Router } = require("express");
 
-const { renderHome, renderNotes } = require("../controllers/renderer");
+const renderer = require("../controllers/renderer");
 
 const router = Router();
 
 // should return the notes.html file.
-router.get("/notes", renderNotes);
+router.get("/notes", renderer("notes"));
 
 // should return the index.html file.
-router.get("*", renderHome);
+router.get("*", renderer("index"));
 
 module.exports = router;
